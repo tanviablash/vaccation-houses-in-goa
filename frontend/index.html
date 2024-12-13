@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Houses in Goa</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <div class="background-container">
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Dream Cream Logo"> <!-- Replace with your logo path -->
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#listings">Listings</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><input type="text" placeholder="Search..."></li>
+                    
+                    <li><button id="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="content">
+            <h1>Welcome to Goa</h1>
+            <p>Find the perfect vacation home in Goa</p>
+            <!-- Get Started Button -->
+            <button class="get-started" onclick="scrollToRecommendations()">Get Started</button>
+        </div>
+    </div>
+
+    <!-- Recommendations Section -->
+    <section id="recommendations">
+        <h2>Recommended Vacation Homes</h2>
+        <div class="recommendations-container">
+            <!-- Recommendation Card 1 -->
+            <div class="recommendation-card">
+                <div class="slideshow">
+                    <img src="images/prop1.jpg" alt="Home 1 Image 1">
+                    <img src="images/prop1a.jpg" alt="Home 1 Image 2">
+                    <img src="images/prop1b.jpg" alt="Home 1 Image 3">
+                </div>
+                <p class="location">Calangute Beach, Goa</p>
+                <div class="actions">
+                    <button class="enquire">Enquire Now</button>
+                    <button class="book">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Recommendation Card 2 -->
+            <div class="recommendation-card">
+                <div class="slideshow">
+                    <img src="images/prop2.png" alt="Home 2">
+                    <img src="images/prop2a.png" alt="Home 2">
+                    <img src="images/prop2b.png" alt="Home 2">
+                    <img src="images/prop2c.png" alt="Home 2">
+                </div>
+                <p class="location">Anjuna Beach, Goa</p>
+                <div class="actions">
+                    <button class="enquire">Enquire Now</button>
+                    <button class="book">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Recommendation Card 3 -->
+            <div class="recommendation-card">
+                <div class="slideshow">
+                    <img src="images/prop3.jpg" alt="Home 3">
+                    <img src="images/prop3a.jpg" alt="Home 3">
+                    <img src="images/prop3b.jpg" alt="Home 3">
+                </div>
+                <p class="location">Vagator Beach, Goa</p>
+                <div class="actions">
+                    <button class="enquire">Enquire Now</button>
+                    <button class="book">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Recommendation Card 4 -->
+            <div class="recommendation-card">
+                <div class="slideshow">
+                    <img src="images/prop4.jpg" alt="Home 4">
+                    <img src="images/prop4a.jpg" alt="Home 4">
+                    <img src="images/prop4b.png" alt="Home 4">
+                </div>
+                <p class="location">Baga Beach, Goa</p>
+                <div class="actions">
+                    <button class="enquire">Enquire Now</button>
+                    <button class="book">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Dark/Light theme toggle functionality
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeButton = document.getElementById('theme-toggle');
+            themeButton.textContent = document.body.classList.contains('dark-theme') ? '🌞' : '🌙';
+        }
+
+        // Scroll to Recommendations Section
+        function scrollToRecommendations() {
+            document.getElementById('recommendations').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Slideshow functionality
+        let slideInterval;
+        
+        // Start the slideshow for all recommendation cards
+        function startSlideshow() {
+            const allSlideshows = document.querySelectorAll('.slideshow');
+            allSlideshows.forEach((element) => {
+                let index = 0;
+                const images = element.querySelectorAll("img");
+                setInterval(() => {
+                    images.forEach((img, i) => img.style.display = i === index ? "block" : "none");
+                    index = (index + 1) % images.length;
+                }, 2000); // Change every 2 seconds
+            });
+        }
+
+        // Call the startSlideshow function on page load
+        window.onload = startSlideshow;
+
+    </script>
+</body>
+</html>
